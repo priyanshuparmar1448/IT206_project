@@ -40,24 +40,18 @@ void queue::enqueue(int n)         // to add an element in the queue
     }
     else
     {
-        struct node *ptr=front;
-        while(ptr!=rear)
-        {
-            struct node *p=ptr->next;
-            if(ptr->data<n && p->data>n)
-            {
-                struct node *t=(struct node *)malloc(sizeof(struct node));
-                t->data=n;
-                ptr->next=t;
-                t->next=p;
-                return ;
-            }
-            ptr=ptr->next;
+        node *temp=new node;
+        node *pointer;
+        pointer=front;
+        temp->data=n;
+        if(temp->data < pointer->data){
+            temp->next=pointer;
+            pointer=temp;
         }
-        struct node *ptrr=(struct node *)malloc(sizeof(struct node));
-        rear->next=ptrr;
-        rear=ptrr;
-        rear->data=n;
+        else{
+            pointer=pointer->next;
+        }
+       
     }
 }
 
