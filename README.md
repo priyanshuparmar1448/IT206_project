@@ -41,17 +41,30 @@ void queue::enqueue(int n)         // to add an element in the queue
     else
     {
         node *temp=new node;
-        node *pointer1;
-        pointer=front;
         temp->data=n;
-        if(temp->data < pointer->data){
-            temp->next=pointer;
-            pointer=temp;
+            if(front->data>n)
+            {
+                temp->next=front;
+                front=temp;
+                return ;
+            }
+        else
+        {
+            struct node *pointer1=front;
+            while(pointer1!=rear)
+            {
+                struct node *pointer2=pointer1->next;
+                if(pointer1->data<n && pointer2->data>n)
+                {
+                    pointer1->next=temp;
+                    temp->next=pointer2;
+                    return ;
+                }
+                pointer1=pointer1->next;
+            }
         }
-        else{
-            pointer=pointer->next;
-        }
-       
+        rear->next=temp;
+        rear=temp;
     }
 }
 
