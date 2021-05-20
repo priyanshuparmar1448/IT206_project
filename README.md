@@ -41,7 +41,7 @@ void queue::enqueue(int n)         // to add an element in the queue
     else
     {
         node *temp=new node;
-        node *pointer;
+        node *pointer1;
         pointer=front;
         temp->data=n;
         if(temp->data < pointer->data){
