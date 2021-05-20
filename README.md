@@ -17,7 +17,7 @@ private:
     struct node* rear;
 public:
     queue();
-    void enqueue(int );
+    void enqueue(int ,string );
     void dequeue();
     void display();
     void add_str(int,string);
@@ -29,7 +29,7 @@ public:
     rear=NULL;
 }
 
-void queue::enqueue(int n)         // to add an element in the queue
+void queue::enqueue(int n, string name)         // to add an element in the queue
 {
     if(front==NULL&&rear==NULL)
     {
@@ -37,11 +37,13 @@ void queue::enqueue(int n)         // to add an element in the queue
         front=ptr;
         rear=ptr;
         front->data=n;
+        front->str=name;
     }
     else
     {
         node *temp=new node;
         temp->data=n;
+        temp->str=name;
             if(front->data>n)
             {
                 temp->next=front;
@@ -131,7 +133,7 @@ void queue::display()          // the function will display the queue
         int x;
         cin>>x;
         cout<<"line 0\n";
-        q.enqueue(x);
+        q.enqueue(x,str);
         q.add_str(x,str);
     }
     q.display();
