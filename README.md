@@ -25,7 +25,7 @@ private:
 public:
     queue();
     void enqueue(int, string);
-    void dequeue();
+    string dequeue();
     void display();
     void add_str(int, string);
 };
@@ -56,26 +56,12 @@ void queue::enqueue(int n, string name) // to add an element in the queue
     }
 }
 
-void queue::dequeue() // to delete the element in the queue
+string queue::dequeue() // to delete the element in the queue
 {
-    if (front == NULL && rear == NULL)
-    {
-        cout << "queue is empty\n";
-    }
-    else if (front != rear)
-    {
-        struct node *ptr = front;
-        front = front->next;
-        free(ptr);
-    }
-    else
-    {
-        struct node *ptr = front;
-        front = front->next;
-        free(ptr);
-        front = NULL;
-        rear = NULL;
-    }
+    node *ptr = front;
+    front = front->next;
+    string s = ptr->str;
+    return s;
 }
 
 void queue::display() // the function will display the queue
@@ -131,6 +117,8 @@ int main()
         string str = *(arrs + i);
         q.enqueue(x, str);
     }
+    delete[] arri;
+    delete[] arrs;
     q.display();
 
     cout << "\nRound: 1\nNow we go towards choice filling for each student: \n\n";
@@ -145,6 +133,7 @@ int main()
     cout << "press 9: for IIT GANDHINAGAR \n";
     cout << "press 10: for IIT JODHPUR \n";
 
+    int a = 0, b = 10;
     college[0].cname = "IIT BOMBAY";
     college[1].cname = "IIT DELHI";
     college[2].cname = "IIT MADRAS";
@@ -156,15 +145,54 @@ int main()
     college[8].cname = "IIT GANDHINAGAR";
     college[9].cname = "IIT JODHPUR";
 
-    for (int i = 0; i < 10; i++)
+    for (int i = a; i < b; i++)
     {
         college[i].cid = i + 1;
     }
-    for (int i = 0; i < 10; i++)
+    for (int i = a; i < b; i++)
     {
-        college[i].total_seats = rand()%4;
+        college[i].total_seats = rand() % 4;
     }
     //stack s1,s2,s3,s4,s5,s6,s7,s8,s9,s10;
-    cout<<"";
+    for (int j = 0; j < n; j++)
+    {
+        string s = q.dequeue();
+        cout << "turn of " << s << "\n";
+        cout << "enter the number of choices that you want to fill: ";
+        bool count = 1;
+        int x;
+        cin >> x;
+        for (int i = 0; i < x; i++)
+        {
+            cout << "give the id number of college in filling " << i + 1 << ": ";
+            int x1;
+            cin >> x1;
+            if (college[x1].total_seats && count)
+            {
+                //s.push(s);
+                count = 0;
+                cout << "ok done";
+                college[x1].total_seats--;
+            }
+            if (i == x - 1 && count == 1)
+            {
+                //s.push(x);
+                cout << "no";
+            }
+        }
+    }
+    cout << "here is the result of Round: 1\n";
+    for (int i = a; i < b; i++)
+    {
+        int y = 101;
+        cout << college[i].cname << "\n";
+        for (int j = 0; j < college[i].total_seats; j++)
+        {
+            //string s=s.pop();
+            cout << y << ": ";
+            //cout<<s<<"\n";
+            y++;
+        }
+    }
     return 0;
 }
