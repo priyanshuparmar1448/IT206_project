@@ -54,12 +54,12 @@ int main()
     cout << "\nRound: 1\nNow we go towards choice filling for each student: \n\n";
     cout << "press 1: for IIT BOMBAY \n";    // 1
     cout << "press 2: for IIT DELHI \n";     // 3
-    cout << "press 3: for IIT MADRAS \n";    // 2
-    cout << "press 4: for IIT KHARAGPUR \n"; // 5
-    cout << "press 5: for IIT GUWAHATI \n";  // 5
+    cout << "press 3: for IIT KANPUR \n";    // 2
+    cout << "press 4: for IIT MADRAS \n"; // 5
+    cout << "press 5: for IIT KHARAGPUR \n";  // 5
     cout << "press 6: for IIT ROORKEE \n";
     cout << "press 7: for IIT HYDERABAD \n";
-    cout << "press 8: for IIT KANPUR \n";
+    cout << "press 8: for IIT DHANBAD \n";
     cout << "press 9: for IIT GANDHINAGAR \n";
     cout << "press 10: for IIT JODHPUR \n";
 
@@ -71,11 +71,11 @@ int main()
     clg[2].name="IIT Kanpur";
     clg[3].name="IIT Madras";
     clg[4].name="IIT Kharagpur";
-    clg[5].name="IIT Jodhpur";
-    clg[6].name="IIT Gandhinagar";
-    clg[7].name="IIT Goa";
-    clg[8].name="IIT Dhanbad";
-    clg[9].name="IIT Roorke";
+    clg[5].name="IIT Roorkee";
+    clg[6].name="IIT Hyderabad";
+    clg[7].name="IIT Dhanbad";
+    clg[8].name="IIT Gandhinagar";
+    clg[9].name="IIT Jodhpur";
 
     clg[0].seats=4;
     clg[1].seats=0;
